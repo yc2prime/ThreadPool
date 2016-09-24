@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadPool", "ThreadPool\ThreadPool.vcxproj", "{0161145A-7CC2-4531-9373-35533AC87756}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{84ED079C-B1DF-402B-B545-037EDF8BF0CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0161145A-7CC2-4531-9373-35533AC87756} = {0161145A-7CC2-4531-9373-35533AC87756}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0161145A-7CC2-4531-9373-35533AC87756}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0161145A-7CC2-4531-9373-35533AC87756}.Debug|Win32.Build.0 = Debug|Win32
+		{0161145A-7CC2-4531-9373-35533AC87756}.Release|Win32.ActiveCfg = Release|Win32
+		{0161145A-7CC2-4531-9373-35533AC87756}.Release|Win32.Build.0 = Release|Win32
+		{84ED079C-B1DF-402B-B545-037EDF8BF0CA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{84ED079C-B1DF-402B-B545-037EDF8BF0CA}.Debug|Win32.Build.0 = Debug|Win32
+		{84ED079C-B1DF-402B-B545-037EDF8BF0CA}.Release|Win32.ActiveCfg = Release|Win32
+		{84ED079C-B1DF-402B-B545-037EDF8BF0CA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
