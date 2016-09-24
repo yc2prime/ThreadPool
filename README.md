@@ -3,7 +3,7 @@ A simple thread pool implementation base on [Boost.Asio](http://www.boost.org/do
 
 
 ## Basic usage
-```
+```C++
 #include "ThreadPool.h"
 #include <cmath>
 using namespace tpool;
