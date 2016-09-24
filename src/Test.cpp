@@ -27,16 +27,21 @@ public:
 
 int main()
 {
+	// Create thread pool with 4 threads
 	ThreadPool *threadPool = new ThreadPool(4);
-	threadPool->start();
-	Calculator calculator;
 
+	//Start pool 
+	threadPool->start();
+
+	//Do something
+	Calculator calculator;
 	for (int i = 0; i < 6; i++)
 	{
 		threadPool->execute(&calc);
 		threadPool->execute(&Calculator::calculate, calculator, 123.4f, 456.7f);
 	}
 
+	//Shutdown the pool
 	threadPool->shutdownGracefully();  // Call threadPool->shutdown() to shutdown IMMEDIATELY
 
 	return 0;
