@@ -25,51 +25,51 @@
 
 namespace tpool
 {
-	class ThreadPool
-	{
-	public:
-		//Default Pool Size
-		static const int DEFAULT_POOL_SIZE = 1;
+    class ThreadPool
+    {
+    public:
+        //Default Pool Size
+        static const int DEFAULT_POOL_SIZE = 1;
 
-		//Constructor 
-		ThreadPool(int poolSize = DEFAULT_POOL_SIZE);
-		
-		//Destructor
-		virtual ~ThreadPool();
+        //Constructor 
+        ThreadPool(int poolSize = DEFAULT_POOL_SIZE);
+        
+        //Destructor
+        virtual ~ThreadPool();
 
-		//start the pool
-		void start();
+        //start the pool
+        void start();
 
-		//stop the pool
-		void shutdown();
+        //stop the pool
+        void shutdown();
 
-		//shutdown after jobs are done
-		void shutdownGracefully();
-		
-		
-		//do the job of F
-		template<class F, class... Args> void execute(F f, Args &&... args)
-		{
-			ioService.post(boost::bind(f, std::forward<Args>(args)...));
-		};
+        //shutdown after jobs are done
+        void shutdownGracefully();
+        
+        
+        //do the job of F
+        template<class F, class... Args> void execute(F f, Args &&... args)
+        {
+            ioService.post(boost::bind(f, std::forward<Args>(args)...));
+        };
 
 
-	protected:
-		//I/O sync loop
-		boost::asio::io_service ioService;
+    protected:
+        //I/O sync loop
+        boost::asio::io_service ioService;
 
-		//Thread container
-		boost::thread_group pool;
+        //Thread container
+        boost::thread_group pool;
 
-		//Worker to inform ioService when it has work to do
-		boost::asio::io_service::work* worker;
-				
-		//Pool size
-		int size;
+        //Worker to inform ioService when it has work to do
+        boost::asio::io_service::work* worker;
+                
+        //Pool size
+        int size;
 
-		//stop ioService
-		void _shutdown();
-	};
+        //stop ioService
+        void _shutdown();
+    };
 
 }  //namespace tpool
 
