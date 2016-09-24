@@ -5,27 +5,39 @@ using namespace std;
 
 void calc()
 {
-	cout << "Calculation start!" << endl;
+	cout << "Calc() start!" << endl;
 	float x = 123.0f;
-	for (int i = 0; i < 999999999; i++)
+	for (int i = 0; i < 99999999; i++)
 	{
 		sqrtf(x * 1234567.89f);
 	}
 
-	cout << "Calculation complete!" << endl;
+	cout << "Calc() complete!" << endl;
 }
+
+class Calculator
+{
+public:
+	void calculate(float a, float b)
+	{
+		cout << "Calculate " << a << " and " << b << endl;
+	};
+};
+
 
 int main()
 {
 	ThreadPool *threadPool = new ThreadPool(4);
 	threadPool->start();
+	Calculator calculator;
 
 	for (int i = 0; i < 6; i++)
 	{
 		threadPool->execute(&calc);
+		threadPool->execute(&Calculator::calculate, calculator, 123.4f, 456.7f);
 	}
 
-	threadPool->shutdownGracefully();  // Or call threadPool->shutdown() to shutdown immediately
+	threadPool->shutdownGracefully();  // Call threadPool->shutdown() to shutdown IMMEDIATELY
 
 	return 0;
 }

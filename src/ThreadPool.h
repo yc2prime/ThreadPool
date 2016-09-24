@@ -46,11 +46,13 @@ namespace tpool
 		//shutdown after jobs are done
 		void shutdownGracefully();
 		
+		
 		//do the job of F
-		template<class F> void execute(F f)
+		template<class F, class... Args> void execute(F f, Args &&... args)
 		{
-			ioService.post(f);
+			ioService.post(boost::bind(f, std::forward<Args>(args)...));
 		};
+
 
 	protected:
 		//I/O sync loop
