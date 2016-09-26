@@ -1,5 +1,5 @@
 # ThreadPool
-A C++ thread pool implementation base on [Boost.Asio](http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio.html)
+A C++11 thread pool implementation base on [Boost.Asio](http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio.html)
 
 
 ## Basic usage
