@@ -9,18 +9,18 @@ A C++11 thread pool implementation base on [Boost.Asio](http://www.boost.org/doc
 using namespace tpool;
 using namespace std;
 
+//An example to execute a function in pool
 void calc()
 {
     cout << "Calc() start!" << endl;
-    float x = 123.0f;
     for (int i = 0; i < 99999999; i++)
     {
-        sqrtf(x * 1234567.89f);
+        sqrtf(123.0f * 1234567.89f);
     }
-
     cout << "Calc() complete!" << endl;
 }
 
+//An example to execute a function with params
 class Calculator
 {
 public:
