@@ -46,6 +46,8 @@ int main()
         threadPool->execute(&calc);
         threadPool->execute(&Calculator::calculate, calculator, 123.4f, 456.7f);
     }
+    
+    Sleep(10000);
 
     //Shutdown the pool
     threadPool->shutdownGracefully();  // Call threadPool->shutdown() to shutdown IMMEDIATELY
